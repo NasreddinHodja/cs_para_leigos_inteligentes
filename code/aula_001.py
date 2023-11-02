@@ -76,7 +76,7 @@
 # numero_sagrado = 41
 # acertou = False
 
-# while acertou:
+# while not acertou:
 #     chute = int(input("Tente adivinhar o número sagrado:\n"))
 
 #     if chute == numero_sagrado:
@@ -92,7 +92,7 @@ contador_chute = 0
 numero_sagrado = 41
 acertou = False
 
-while acertou and contador_chute < 10:
+while not acertou and contador_chute < 10:
     chute = int(input("Tente adivinhar o número sagrado:\n"))
     contador_chute += 1
 
