@@ -1,0 +1,217 @@
+#+title: Aula 001: Python é bonitinho
+
+* Intro para windows 🙄
+Vai toma no cu po
+
+** Python
+Primeiro ver se já tá instalado:
++ Tacar ~python --version~ no command prompt
+
+Instalando:
+1. [[https://www.python.org/]]
+2. 'Downloads', baixar
+3. abrir o installer e checka o 'Add Python to path', instalar
+4. abrir o prompt de comand de novo com ~python --version~ pra confirmar
+
+** Editor de texto
+Escolhas...
+Mó parada...
+Vamo de VSCodium...
+
+Instalando:
+1. [[https://vscodium.com/]], achar o link pros releases do github
+2. procurar por ~.msi~, baixar, rodar
+3. configurar..........................
+   + escolher tema
+   + baixar extensões (Python)
+
+** Executando um arquivo ~.py~
+Criar uma pasta para o curso e criar um arquivo ~aula_001.py~ pra aula de hoje:
+#+begin_src python
+print("Olá, mundo!")
+#+end_src
+
+Para executar temos algumas opções:
++ Executar na mão (based):
+  Navegar até a pasta pelo prompt de comando e executar com ~python <arquivo>~
++ Executar pelo VSCodium (soy):
+  1. No VSCodium, ~<CTRL><SHIFT>p~, 'select python interpreter' e selecionar python 3
+  2. Pra rodar tem as seguintes opções
+     + Clickar no botão de play no topo/direita
+     + ~<CTRL><SHIFT>p~ ou right click e "run python in terminal"
+
+Pronto!
+Bora programar??! haha
+
+* Operadores aritméticos
+Os básicos:
+#+begin_src python
+print(1 + 2)
+print(1 - 2)
+print(1 / 2)
+print(1 * 2)
+
+# e se eu fizer com strings?
+print("Olá, " + "mundo" + "!")
+#+end_src
+
+Observações:
+1. espaços no código são ignorados e são usados para deixar as coisas mais legíveis (~1+1*3/2~ vs ~1 + 1 * 3 / 2~)
+2. comentários não afetam o código e são usados para dar infos
+
+* Variáveis
+São caixinhas onde a gente vai guardar informação.
+#+begin_src python
+nome = "Nassu"
+print("Olá, " + nome + "!")
+print("Como vai, " + nome + "?")
+print("Ok beleza xau, " + nome + "!")
+#+end_src
+
+Se eu quiser mudar o nome é só eu mudar o que tá guardado dentro da caixinha chamada ~nome~. Ou seja, mudar só a primeira linha, o resto continua funcionando!
+
+Vars podem guardar vários tipos de informação:
+#+begin_src python
+nome = "Nassu"
+idade = 25
+cidade = "Rio de Janeiro"
+estado = "RJ"
+print(f"{nome} tem {idade} anos e mora em {cidade}, {estado}.")
+#+end_src
+A gente vai ver mais tipos depois...
+
+Eu consigo reatribuir valores a uma var:
+#+begin_src python
+nome = "Nassu"
+nome = "Tomas"
+print(nome)
+
+nome = 10
+print(nome)
+#+end_src
+
+Observações:
++ Nome de vars:
+  - letras, números (não no começo) ou "_"
+  - não pode começar com número
+  - não pode ser palavras já usadas como keywords do python (break, try, for...)
+  - case sensitive
+  - a regra pra nomear é ser simples mais descriptivo
+
+* Recebendo input
+#+begin_src python
+nome = input("Qual é o seu nome?\n")
+print(f"Olá, {nome}!")
+#+end_src
+
+* Trabalhando com o tipo certo
+Quando eu recebo um input com ~input()~, o resultado retornado que vai ser atribuído à var sera um valor do tipo ~str~.
+#+begin_src python
+nome = input("Qual é o seu nome?\n")
+print(type(nome))
+
+idade = input("Qual é sua idade?\n")
+print(type(idade))
+# print(idade + 10) # da erro
+#+end_src
+
+Se a gente quiser, por exemplo, transformar uma string "41" no número inteiro 41, fazemos type casting:
+#+begin_src python
+numero = int("41")
+print(type(numero))
+print(numero + 10) # nao da erro
+#+end_src
+
+Então, se quisermos pegar a idade do usuário usando a função ~input()~, fazemos:
+#+begin_src python
+idade = int(input("qual é sua idade?\n"))
+print(type(idade))
+print(idade + 10) # nao da erro
+#+end_src
+
+* Condicionais
+Tem como a gente escolher maneiras diferentes de fazer agir dependendo de uma condição.
+
+Exemplo: queremos barrar todos os menores de idade tentando comprar cachaça.
+1. verificar idade do meliante
+2. se idade for maior ou igual a 18, liberar a cachaça
+3. se não, barrar o menor
+#+begin_src python
+idade = int(input("qual é sua idade?\n"))
+
+if idade >= 18:
+    print("tome cachaça")
+else:
+    print("vá estudar, criança")
+#+end_src
+
+Observações:
++ Indentação
+  O python reconhece um bloco de código apenas pela indentação. Tomas cuidado para indentar direito.
+
+** ~elif~
+Joguinho idiota: eu, o programador, vou definir um número. O usuário deverá adivinhar o número que eu defini. Beleza?..ok
+#+begin_src python
+numero_sagrado = 41
+chute = int(input("Tente adivinhar o número sagrado:\n"))
+
+if chute == numero_sagrado:
+    print("parabens você ganhou haha eba!")
+else:
+    print("idiota")
+#+end_src
+
+Agora, se eu quiser dar uma dica pro usuário pra próxima vez que ele jogar?
+#+begin_src python
+numero_sagrado = 41
+chute = int(input("Tente adivinhar o número sagrado:\n"))
+
+if chute == numero_sagrado:
+    print("parabens você ganhou haha eba!")
+elif chute > numero_sagrado:
+    print("você chutou alto")
+else:
+    print("você chutou baixo")
+#+end_src
+
+* Loops
+As vezes a gente tem que repetir as coisas.
+
+** ~while~
+É a ideia de repetir um processo enquanto uma condição estiver sendo satisfeita.
+
+Se quisermos que o usuário continue repetindo o chute dele até ele acertar:
+#+begin_src python
+numero_sagrado = 41
+acertou = False
+
+while not acertou:
+    chute = int(input("Tente adivinhar o número sagrado:\n"))
+
+    if chute == numero_sagrado:
+        print("parabens você ganhou haha eba!")
+        acertou = True
+    elif chute > numero_sagrado:
+        print("você chutou alto")
+    else:
+        print("você chutou baixo")
+#+end_src
+
+E se quisermos que tenha no máximo 10 chutes?
+#+begin_src python
+contador_chute = 0
+numero_sagrado = 41
+acertou = False
+
+while not acertou and contador_chute < 10:
+    chute = int(input("Tente adivinhar o número sagrado:\n"))
+    contador_chute += 1
+
+    if chute == numero_sagrado:
+        print("parabens você ganhou haha eba!")
+        acertou = True
+    elif chute > numero_sagrado:
+        print("você chutou alto")
+    else:
+        print("você chutou baixo")
+#+end_src
