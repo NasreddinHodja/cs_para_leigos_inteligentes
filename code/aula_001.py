@@ -21,6 +21,7 @@ nome = "Nassu"
 idade = 25
 cidade = "Rio de Janeiro"
 estado = "RJ"
+casado = False
 print(f"{nome} tem {idade} anos e mora em {cidade}, {estado}.")
 
 # reatribuindo valores a uma mesma var

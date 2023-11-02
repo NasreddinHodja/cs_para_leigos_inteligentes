@@ -56,8 +56,9 @@ print("Olá, " + "mundo" + "!")
 #+end_src
 
 Observações:
-1. espaços no código são ignorados e são usados para deixar as coisas mais legíveis (~1+1*3/2~ vs ~1 + 1 * 3 / 2~)
-2. comentários não afetam o código e são usados para dar infos
+1. o código executa linha por linha
+2. espaços no código são ignorados e são usados para deixar as coisas mais legíveis (~1+1*3/2~ vs ~1 + 1 * 3 / 2~)
+3. comentários não afetam o código e são usados para dar infos
 
 * Variáveis
 São caixinhas onde a gente vai guardar informação.
@@ -76,6 +77,7 @@ nome = "Nassu"
 idade = 25
 cidade = "Rio de Janeiro"
 estado = "RJ"
+casado = False
 print(f"{nome} tem {idade} anos e mora em {cidade}, {estado}.")
 #+end_src
 A gente vai ver mais tipos depois...
