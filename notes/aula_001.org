@@ -148,8 +148,8 @@ else:
 #+end_src
 
 Observações:
-+ Indentação
-  O python reconhece um bloco de código apenas pela indentação. Tomas cuidado para indentar direito.
++ Indentação! Falar sobre a ideia de bloco de codigo.
+  O python reconhece um bloco de código apenas pela indentação. Tomar cuidado para indentar direito.
 
 ** ~elif~
 Joguinho idiota: eu, o programador, vou definir um número. O usuário deverá adivinhar o número que eu defini. Beleza?..ok
@@ -176,10 +176,8 @@ else:
     print("você chutou baixo")
 #+end_src
 
-* Loops
-As vezes a gente tem que repetir as coisas.
 
-** ~while~
+* ~while~
 É a ideia de repetir um processo enquanto uma condição estiver sendo satisfeita.
 
 Se quisermos que o usuário continue repetindo o chute dele até ele acertar:
@@ -216,4 +214,75 @@ while not acertou and contador_chute < 10:
         print("você chutou alto")
     else:
         print("você chutou baixo")
+#+end_src
+
+* Listas
+Lista ordenanda não homogenea.
+#+begin_src python
+nomes = ["Nassu", "Tomám", "Seu Zé", "Amelia", "Jorge", "Canildo"]
+i = 0
+
+while i < len(nomes):
+    print(nomes[i])
+    i += 1
+
+
+# achando o maior numero
+nums = [32, 100, 2, -12, 4, 3, 5, 10, -50]
+max_num = 32
+i = 1
+while i < len(nums):
+    if nums[i] > max_num:
+        max_num = nums[i]
+    i += 1
+
+print(max_num)
+#+end_src
+
+* ~for~
+Para elemento dentro de elementos.
+#+begin_src python
+nums = [32, 100, 2, -12, 4, 3, 5, 10, -50]
+max_num = 32
+
+for num in nums:
+    if num > max_num:
+        max_num = num
+
+print(max_num)
+#+end_src
+
++ ~range~
+#+begin_src python
+for i in range(10):
+    print(i)
+
+for i in range(0, 10, 3):
+    print(i)
+#+end_src
+
+* Funções
+Empacotar um pedaço de código para:
++ isolar a lógica
++ tornar o código mais legível
++ reusar pedaço de código sem ter que copiar inteiro
+#+begin_src python
+def ola_mundo():
+    print("Olá, mundo!")
+
+def contem(numeros, x):
+    for num in numeros:
+        if num == x:
+            return True
+
+    return False
+
+def achar_max(numeros):
+    max_num = lista[0]
+
+    for i in range(1, len(lista)):
+        if lista[i] > max_num:
+            max_num = lista[i]
+
+    return max_num
 #+end_src

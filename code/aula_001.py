@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 print("Olá, mundo!")
 
 
@@ -104,3 +106,69 @@ while not acertou and contador_chute < 10:
         print("você chutou alto")
     else:
         print("você chutou baixo")
+
+
+# listas
+nums = [32, 100, 2, -12, 4, 3, 5, 10, -50]
+max_n = 32
+i = 1
+while i < len(nums):
+    if nums[i] > max_n:
+        max_n = nums[i]
+    i += 1
+
+print(max_n)
+
+
+# for
+nums = [32, 100, 2, -12, 4, 3, 5, 10, -50]
+max_num = 32
+
+for num in nums:
+    if num > max_num:
+        max_num = num
+
+print(max_num)
+
+# range
+nums = [32, 100, 2, -12, 4, 3, 5, 10, -50]
+
+for i in range(10):
+    print(i)
+
+for i in range(0, 10, 3):
+    print(i)
+
+for i in range(0, len(nums), 2):
+    print(nums[i])
+
+
+# funcoes
+def ola_mundo():
+    print("Olá, mundo!")
+
+
+def contem(numeros, x):
+    for num in numeros:
+        if num == x:
+            return True
+
+    return False
+
+
+def achar_max(numeros):
+    max_num = numeros[0]
+
+    for i in range(1, len(numeros)):
+        if numeros[i] > max_num:
+            max_num = numeros[i]
+
+    return max_num
+
+
+lista_a = [1, 2, 3]
+lista_b = [-10, 50, 2]
+print(contem(lista_a, 2))
+print(contem(lista_b, 100))
+print(achar_max(lista_a))
+print(achar_max(lista_b))
